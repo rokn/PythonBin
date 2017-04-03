@@ -1,3 +1,5 @@
-PASTE_CREATE_URL = 'https://pastebin.com/api/api_post.php'
-PASTEBIN_API_KEY = '15c0892a19b046f18a4edf7e273b940e'
+PASTEBIN_CREATE_URL = 'https://pastebin.com/api/api_post.php'
+# PASTEBIN_API_KEY = '15c0892a19b046f18a4edf7e273b940e'
+PASTEBIN_API_KEY = '8c72aa4fed346eede2a61d6001714d0c'
 PASTEBIN_API_PASTE_OPTION = 'paste'
+PASTEBIN_USER_LOGIN_URL = 'https://pastebin.com/api/api_login.php'
