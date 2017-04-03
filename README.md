@@ -5,4 +5,4 @@ A CommandLineInterface(CLI) for pasting files and whatever you want to pastebin.
 
 `pip install -r requirments`
 
-`python main.py -h`
+`python src/main.py -h`
