@@ -51,6 +51,7 @@ def main(argv):
     username = ''
     password = ''
     syntax = ''
+    title = ''
     expiry = ''
     clip = False
     silent = False
