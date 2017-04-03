@@ -43,7 +43,12 @@ def handle_input(args, title, syntax, expiry, clip):
 def print_help():
     print()
     print("Use like cat program to upload to pastebin.")
-    print("[-u|--username] [-p|--password] - for username and assword")
+    print("[-u|--username] [-p|--password] - for username and password")
+    print("[-t|--title] for title")
+    print("[-s|--syntax] for syntax")
+    print("[-e|--expiry] for expiry time")
+    print("[-c] for auto copy to clipboard when only one input is used")
+    print("[-m] for silent mode(no prints)")
     print()
     pass
 
@@ -56,7 +61,7 @@ def main(argv):
     clip = False
     silent = False
     try:
-        opts, args = getopt.gnu_getopt(argv, 'hu:p:t:s:e:cs', ["username=", "password=", "title=", "syntax=", "expiry="])
+        opts, args = getopt.gnu_getopt(argv, 'hu:p:t:s:e:cm', ["username=", "password=", "title=", "syntax=", "expiry="])
     except getopt.GetoptError:
         print_help()
         sys.exit(2)
@@ -77,7 +82,7 @@ def main(argv):
             expiry = arg
         elif opt == '-c':
             clip = True
-        elif opt == '-s':
+        elif opt == '-m':
             silent = True
 
     if silent:
