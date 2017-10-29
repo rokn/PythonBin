@@ -1,7 +1,9 @@
+#!/home/rokner/anaconda3/bin/python3.6
 import fileinput
 import pyperclip
 import sys, getopt, os
 from pastebin_connection import paste_create, login_user
+from formats import FORMATS
 
 
 def add_paste(content, title, syntax, expiry, succ, error):
@@ -42,15 +44,22 @@ def handle_input(args, title, syntax, expiry, clip):
 
 def print_help():
     print()
-    print("Use like cat program to upload to pastebin.")
+    print("Uploading files to pastebin. Usage similar to `cat` program.")
     print("[-u|--username] [-p|--password] - for username and password")
     print("[-t|--title] for title")
     print("[-s|--syntax] for syntax")
     print("[-e|--expiry] for expiry time")
     print("[-c] for auto copy to clipboard when only one input is used")
     print("[-m] for silent mode(no prints)")
+    print("[-f|--format] for printing available formats and searching for a format")
     print()
-    pass
+
+def print_formats(search):
+    if search:
+        formats = [line for line in FORMATS.splitlines() if search in line]
+        print('\n'.join(formats))
+    else:
+        print(FORMATS)
 
 def main(argv):
     username = ''
@@ -61,7 +70,7 @@ def main(argv):
     clip = False
     silent = False
     try:
-        opts, args = getopt.gnu_getopt(argv, 'hu:p:t:s:e:cm', ["username=", "password=", "title=", "syntax=", "expiry="])
+        opts, args = getopt.gnu_getopt(argv, 'hu:p:t:s:e:cmf:', ["username=", "password=", "title=", "syntax=", "expiry=", "format="])
     except getopt.GetoptError:
         print_help()
         sys.exit(2)
@@ -69,6 +78,9 @@ def main(argv):
     for opt, arg in opts:
         if opt == '-h':
             print_help()
+            sys.exit()
+        elif opt in ('-f', '--format'):
+            print_formats(arg)
             sys.exit()
         elif opt in ('-u', '--username'):
             username = arg
