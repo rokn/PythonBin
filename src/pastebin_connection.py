@@ -32,7 +32,7 @@ def paste_create(content, title, syntax, expiry):
     if title:
         data['api_paste_name'] = title
     if syntax:
-        data['api_paste_format'] = title
+        data['api_paste_format'] = syntax
     if expiry:
         data['api_paste_expire_date'] = expiry
 

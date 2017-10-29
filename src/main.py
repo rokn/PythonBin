@@ -26,7 +26,7 @@ def handle_input(args, title, syntax, expiry, clip):
 
     add_paste(paste_content, title, syntax, expiry, succ, error)
     if succ:
-        print("Succesful pastes")
+        print("Succesful paste")
         for url in succ:
             print(url)
 
